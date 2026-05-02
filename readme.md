@@ -8,3 +8,6 @@
 - **@return:** Informa sobre lo que devuelve
 - **@see:** Asocia con otro método o clase
 - **@version:** versión
+
+> [!note]
+> This a test for documentation
