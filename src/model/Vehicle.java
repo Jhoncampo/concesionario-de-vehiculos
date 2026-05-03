@@ -43,4 +43,15 @@ public class Vehicle {
     public void setMileage(double mileage) {
         this.mileage = mileage;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "code='" + code + '\'' +
+                ", brand='" + brand + '\'' +
+                ", type='" + type + '\'' +
+                ", year=" + year +
+                ", mileage=" + mileage +
+                '}';
+    }
 }
