@@ -30,6 +30,17 @@ public class VehicleService implements Crud<Vehicle> {
                 .findFirst().orElse(null);
     }
 
+    public void update(String code, Vehicle updateVehicle) {
+        Vehicle existing = findByCode(code);
+
+        if (existing != null) {
+            existing.setMileage(updateVehicle.getMileage());
+            System.out.println("Vehicle updated successfully");
+        } else {
+            System.out.println("Vehicle not found");
+        }
+    }
+
     @Override
     public void delete(String code) {
         DataStorage.vehicles.removeIf(v -> v.getCode().equals(code));

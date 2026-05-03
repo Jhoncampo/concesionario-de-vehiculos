@@ -24,9 +24,10 @@ public class Main {
             System.out.println("\n DEALERSHIP MENU");
             System.out.println("1. Add Vehicle");
             System.out.println("2. Show Vehicles");
-            System.out.println("3. Register Sale");
-            System.out.println("4. Show Sales");
-            System.out.println("5. Exit");
+            System.out.println("3. Update Vehicle");
+            System.out.println("4. Register Sale");
+            System.out.println("5. Show Sales");
+            System.out.println("6. Exit");
             System.out.print("Choose an option: ");
 
             option = scanner.nextInt();
@@ -80,6 +81,27 @@ public class Main {
                     vehicleService.findAll().forEach(System.out::println);
                     break;
                 case 3:
+                    System.out.print("\nEnter vehicle code to update: ");
+                    String updateCode = scanner.nextLine();
+
+                    Vehicle vehicleToUpdate = new VehicleService().findByCode(updateCode);
+                    if (vehicleToUpdate == null) {
+                        System.out.println("Vehicle not found");
+                        break;
+                    }
+                    System.out.print("New mileage: ");
+                    double newMileage = scanner.nextDouble();
+                    scanner.nextLine();
+                    Vehicle tempCar = new Car(
+                            vehicleToUpdate.getCode(),
+                            vehicleToUpdate.getBrand(),
+                            vehicleToUpdate.getYear(),
+                            newMileage);
+
+                    vehicleService.update(updateCode, tempCar);
+
+                    break;
+                case 4:
                     System.out.print("\nEnter vehicle code: ");
                     String vehicleCode = scanner.nextLine();
 
@@ -108,11 +130,11 @@ public class Main {
                     saleService.create(sale);
                     System.out.println("Sale registered successfully");
                     break;
-                case 4:
+                case 5:
                     System.out.println("\n=== SALES ===");
                     saleService.findAll().forEach(System.out::println);
                     break;
-                case 5:
+                case 6:
                     System.out.println("Goodbye!");
                     break;
                 default:

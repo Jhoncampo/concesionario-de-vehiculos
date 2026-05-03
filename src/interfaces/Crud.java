@@ -9,6 +9,8 @@ public interface Crud<T> {
 
     T findByCode(String code);
 
+    void update(String code, T obj);
+
     void delete(String code);
 
 }
