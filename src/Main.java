@@ -1,6 +1,3 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-
 import java.util.Scanner;
 
 import model.Car;
@@ -17,6 +14,21 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         VehicleService vehicleService = new VehicleService();
         SaleService saleService = new SaleService();
+
+        vehicleService.create(new Car("V001", "Toyota", 2022, 15000));
+        vehicleService.create(new Car("V002", "Chevrolet", 2021, 22000));
+
+        vehicleService.create(new Truck("V003", "Ford", 2020, 30000));
+        vehicleService.create(new Truck("V004", "Nissan", 2019, 45000));
+
+        vehicleService.create(new Motorcycle("V005", "Yamaha", 2023, 5000));
+        vehicleService.create(new Motorcycle("V006", "Honda", 2022, 8000));
+
+        vehicleService.create(new Car("V007", "Mazda", 2021, 12000));
+        vehicleService.create(new Truck("V008", "Isuzu", 2018, 60000));
+
+        vehicleService.create(new Motorcycle("V009", "Suzuki", 2020, 15000));
+        vehicleService.create(new Car("V010", "Kia", 2023, 3000));
 
         int option;
 
@@ -140,7 +152,7 @@ public class Main {
                 default:
                     System.out.println("Invalid option");
             }
-        } while (option != 5);
+        } while (option != 6);
         scanner.close();
     }
 }
